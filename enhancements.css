@@ -291,6 +291,13 @@ input:focus-visible {
   min-height: 31px;
 }
 
+.top100-widget {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: 31px;
+}
+
 .footer a:not(.brand):hover {
   color: var(--ink);
 }

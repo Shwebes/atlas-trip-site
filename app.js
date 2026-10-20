@@ -3,6 +3,13 @@ const nav=document.querySelector('.nav nav');
 if(toggle&&nav) toggle.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(isOpen));});
 const newsletter=document.querySelector('#newsletter-form');
 if(newsletter) newsletter.addEventListener('submit',e=>{e.preventDefault();const msg=document.querySelector('#newsletter-message');if(msg)msg.textContent='Спасибо! Демонстрационная форма работает локально; подключение рассылки можно добавить позже.';newsletter.reset();});
+const footer=document.querySelector('.footer');
+if(footer&&!document.querySelector('#top100_widget')){const widget=document.createElement('div');widget.id='top100_widget';widget.className='top100-widget';widget.setAttribute('aria-label','Виджет Top100');footer.append(widget);}
+if(document.querySelector('#top100_widget')){
+ const drawTop100Widget=()=>window.top100Counter?.drawLogoTo('top100_widget');
+ if(window.top100Counter)drawTop100Widget();
+ else{window._top100q=window._top100q||[];window._top100q.push(drawTop100Widget);}
+}
 const footerLinks=document.querySelector('.footer div');
 if(footerLinks&&!footerLinks.querySelector('a[href="photo-credits.html"]')){const link=document.createElement('a');link.href='photo-credits.html';link.textContent='Авторы фото';footerLinks.append(link);}
 // Удобные метки для учебной веб-аналитики: события можно связать со счётчиком после его установки.
