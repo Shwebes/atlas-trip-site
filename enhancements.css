@@ -1,0 +1,348 @@
+:root {
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+html {
+  scroll-padding-top: 92px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--green);
+}
+
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #8aaa5a;
+  outline-offset: 4px;
+}
+
+.brand {
+  transition: opacity .2s ease, transform .2s var(--ease-out);
+}
+
+.brand:hover {
+  opacity: .78;
+  transform: translateY(-1px);
+}
+
+.nav nav a {
+  position: relative;
+}
+
+.nav nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .25s var(--ease-out);
+}
+
+.nav nav a:hover::after,
+.nav nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-cta,
+.button,
+.picker,
+.globe-controls button,
+.email-row button {
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .25s var(--ease-out), box-shadow .25s ease;
+}
+
+.nav-cta:hover,
+.picker:hover,
+.globe-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #20251a12;
+}
+
+.hero-copy > * {
+  animation: rise-in .75s var(--ease-out) both;
+}
+
+.hero-copy > :nth-child(2) { animation-delay: 80ms; }
+.hero-copy > :nth-child(3) { animation-delay: 150ms; }
+.hero-copy > :nth-child(4) { animation-delay: 220ms; }
+.hero-copy > :nth-child(5) { animation-delay: 290ms; }
+
+.hero-photo {
+  animation: photo-appear .9s .12s var(--ease-out) both;
+  transition: transform 1s var(--ease-out);
+}
+
+.hero-art:hover .hero-photo {
+  transform: translateY(-3px);
+}
+
+.sun-halo {
+  animation: halo-breathe 7s ease-in-out infinite alternate;
+}
+
+.floating-tag {
+  animation: tag-float 5s ease-in-out infinite;
+}
+
+.tag-bottom {
+  animation-delay: -2.2s;
+}
+
+.destination-card,
+.route-card,
+.journal-card,
+.value-card {
+  transition: transform .35s var(--ease-out), box-shadow .35s ease;
+}
+
+.destination-card:hover,
+.route-card:hover,
+.journal-card:hover,
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px #20251a14;
+}
+
+.country-image,
+.route-cover,
+.journal-image {
+  transition: filter .35s ease, transform .6s var(--ease-out);
+}
+
+.country-row:hover .country-image,
+.route-card:hover .route-cover,
+.journal-card:hover .journal-image {
+  filter: saturate(1.08);
+}
+
+.country-row:hover .country-image {
+  transform: scale(1.015);
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease-out) var(--reveal-delay, 0ms), transform .7s var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.newsletter-form input {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.newsletter-form input:focus {
+  border-color: #899d6f;
+  box-shadow: 0 0 0 4px #c6f27733;
+  outline: 0;
+}
+
+.email-row button:hover {
+  transform: translate(2px, -2px);
+}
+
+.country-pickers {
+  max-height: 108px;
+  overflow-y: auto;
+  padding: 2px 4px 5px 0;
+  scrollbar-color: #b8c3aa transparent;
+  scrollbar-width: thin;
+}
+
+.image-norway {
+  background-image: url('assets/norway.jpg');
+}
+
+.image-thailand {
+  background-image: url('assets/thailand.jpg');
+}
+
+.image-greece {
+  background-image: url('assets/greece.jpg');
+}
+
+.image-nepal {
+  background-image: url('assets/nepal.jpg');
+}
+
+.image-newzealand {
+  background-image: url('assets/new-zealand.jpg');
+}
+
+.image-france {
+  background-image: url('assets/france.jpg');
+}
+
+.image-tanzania {
+  background-image: url('assets/tanzania.jpeg');
+}
+
+.country-pickers .picker {
+  flex: 0 0 auto;
+}
+
+.travel-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: 0 8.2% 10px;
+}
+
+.travel-filters-label {
+  width: 100%;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.travel-filter {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 10px 15px;
+  background: transparent;
+  color: #626761;
+  cursor: pointer;
+  font-size: 11px;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s var(--ease-out);
+}
+
+.travel-filter:hover {
+  transform: translateY(-2px);
+  border-color: #c9d5bc;
+}
+
+.travel-filter.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.travel-filter-status {
+  margin: 0 8.2% 18px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.photo-credit-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 8.2% 100px;
+}
+
+.photo-credit-list article {
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.photo-credit-list h2 {
+  margin: 0 0 9px;
+  font: 600 19px 'Manrope', sans-serif;
+}
+
+.photo-credit-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.photo-credit-list a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.route-grid .route-card[hidden] {
+  display: none;
+}
+
+.footer a:not(.brand) {
+  transition: color .2s ease;
+}
+
+.footer a:not(.brand):hover {
+  color: var(--ink);
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes photo-appear {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes halo-breathe {
+  from { transform: scale(.96); opacity: .72; }
+  to { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes tag-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  .hero-copy > * {
+    animation-duration: .55s;
+  }
+
+  .travel-filters {
+    gap: 7px;
+  }
+
+  .travel-filter {
+    padding: 9px 12px;
+  }
+
+  .photo-credit-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
