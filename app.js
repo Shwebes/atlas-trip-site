@@ -77,3 +77,6 @@ if('IntersectionObserver' in window){
  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12});
  revealTargets.forEach((element,index)=>{element.classList.add('reveal');element.style.setProperty('--reveal-delay',`${index%4*70}ms`);observer.observe(element);});
 }
+window.top100d=window.top100d||function(){(window.top100d.a=window.top100d.a||[]).push(arguments);};
+if(window.location.pathname.endsWith('/routes.html'))window.top100d(7753152,'reachGoal','view_route',{page:window.location.pathname});
+if(window.location.pathname.endsWith('/destinations.html'))window.top100d(7753152,'reachGoal','view_destination',{page:window.location.pathname});
